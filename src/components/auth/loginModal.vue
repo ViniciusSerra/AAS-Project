@@ -40,11 +40,6 @@
             </v-row>
             <v-row v-if="loading == true">
               <v-progress-linear color="white" indeterminate rounded height="6"></v-progress-linear>
-              <div>
-                <v-text class='text-center'>
-                  carregando
-                </v-text>
-              </div>
               <v-img class="mt-15"
                 src='https://ik.imagekit.io/nck7tb9bc/AAS/Design-sem-nome-unscreen.gif?updatedAt=1687056084530'></v-img>
             </v-row>
