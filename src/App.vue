@@ -8,9 +8,11 @@
 </template>
 <script>
 import Header from './layouts/header.vue';
+import Body from './layouts/body.vue';
 export default {
   components: {
-    Header
+    Header,
+    Body
   }
 }
 </script>
