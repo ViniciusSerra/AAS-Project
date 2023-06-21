@@ -1,31 +1,19 @@
 
 <template>
-    <v-navigation-drawer permanent v-model="isOpen" color="light-blue-darken-4 justify-center">
-        <v-row justify="start" align="center" class="mt-5 ma-auto">
-            <v-app-bar-nav-icon size="x-large" @click="openMenu"></v-app-bar-nav-icon>
-            <h1>User type</h1>
-            <v-divider class="mt-7"></v-divider>
-        </v-row>
-    </v-navigation-drawer>
-    <v-toolbar flat extended app>
-        <v-tool-bar-title class="text-uppercase grey--text justify=center">
-            <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
-        </v-tool-bar-title>
-        <v-spacer></v-spacer>
+    <menuExtend />
+    <v-main class="h-75">
 
-        <span class="font-weight-light prepend">USername</span>
-        <v-btn flat size="x-large">
-            <v-icon color="light-blue-accent-3" size="40">mdi-account-circle</v-icon>
-        </v-btn>
-    </v-toolbar>
-    <v-main>
-
-        <Body/>
+        <Body />
     </v-main>
+    <div align="center">
+        <rodape />
+    </div>
 </template>
 
 <script>
 import Body from './body.vue';
+import rodape from './footer.vue';
+import menuExtend from './menu.vue';
 
 export default {
     name: 'Header',
@@ -35,11 +23,13 @@ export default {
         }
     },
     components: {
-        Body
+        Body,
+        menuExtend,
+        rodape
     },
     methods: {
         openMenu: function () {
-            this.isOpen = !this.isOpen
+            this.isOpen = true
         }
     }
 }

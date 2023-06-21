@@ -1,12 +1,16 @@
 <template>
-    <adminComponent/>
+    <Header />
 </template>
 <script>
-import adminComponent from '@/components/adminPainel/adminComponent.vue' 
-export default{
+import Header from '@/layouts/header.vue'
+import Body from '@/layouts/body.vue'
+import rodape from '@/layouts/footer.vue'
+export default {
     name: 'homeView',
-    components:{
-        adminComponent
+    components: {
+        Header,
+        Body,
+        rodape
     }
 }
 </script>
