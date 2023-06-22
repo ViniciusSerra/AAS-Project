@@ -1,13 +1,6 @@
 
 <template>
     <menuExtend />
-    <v-main class="h-75">
-
-        <Body />
-    </v-main>
-    <div align="center">
-        <rodape />
-    </div>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
     <!--Menu Admin -->
-    <v-navigation-drawer permanent color="light-blue-darken-4">
+    <v-navigation-drawer permanent v-model="isOpen" color="light-blue-darken-4">
         <v-row justify="start" align="center" class=" ma-auto">
             <v-app-bar-nav-icon size="x-large" @click="openMenu"></v-app-bar-nav-icon>
             <h1 class="ml-3">User type</h1>
@@ -84,7 +84,13 @@ export default {
                 { title: 'Diciplinas' },
                 { title: 'Salas' },
                 { title: 'Turmas ' },
-            ]
+            ],
+            isOpen: false
+        }
+    },
+    methods: {
+        openMenu: function () {
+            this.isOpen = !this.isOpen
         }
     }
 }
