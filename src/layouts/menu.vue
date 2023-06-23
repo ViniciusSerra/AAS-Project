@@ -61,11 +61,22 @@
             <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
         </v-tool-bar-title>
         <v-spacer></v-spacer>
-
         <span class="font-weight-light prepend">USername</span>
-        <v-btn flat size="x-large">
-            <v-icon color="light-blue-accent-3" size="40">mdi-account-circle</v-icon>
-        </v-btn>
+        <v-menu :location="location" class=" align-center justify-center">
+            <template v-slot:activator="{ props }">
+                <v-btn class="ml-2" color="light-blue-accent-3" variant="plain" size="z-large" v-bind="props">
+                    <v-icon color="light-blue-accent-3" size="40">mdi-account-circle</v-icon>
+                </v-btn>
+            </template>
+            <v-card class="mr-8 mb-5">
+                <v-col>
+                    <v-col> <v-btn>oi</v-btn> </v-col>o
+                    <v-col> <v-btn>oi</v-btn> </v-col>
+                    <v-col> <v-btn>oi</v-btn> </v-col>
+                </v-col>
+            </v-card>
+        </v-menu>
+
     </v-toolbar>
 </template>
 
