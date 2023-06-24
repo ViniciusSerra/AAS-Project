@@ -1,7 +1,7 @@
 <template>
-    <v-row >
+<v-row >
    <ValuesCards/>
-   </v-row>
+</v-row>
    
 </template>
 <script>

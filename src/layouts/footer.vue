@@ -1,7 +1,7 @@
 <template>
     <v-footer class=" w-screen  mt-10">
         <v-row class="justify-center align-center h-25 bg-light-blue-darken-4">
-            Todos os direitos resevados
+            Desenvolvido por Phasent
         </v-row>
     </v-footer>
 </template>

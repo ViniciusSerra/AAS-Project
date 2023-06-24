@@ -4,6 +4,8 @@ import loginView from '@/views/auth/loginView.vue'
 import homeView from '@/views/homeView.vue'
 import adminView from '@/views/adminView.vue'
 import resposibleView from '@/views/responsaibleView.vue' 
+import secretaryView from '@/views/secretaryView.vue'
+import teacherView from '@/views/teacherView.vue'
 
 const routes = [
   {
@@ -14,16 +16,27 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: homeView
+    component: () => homeView
   },
   {
     path: '/admin',
     name: 'admin',
-    component: adminView
+    component: () => adminView
   },{
     path:'/responsaible',
     name:'responsaible',
-    component: resposibleView
+    component: () => resposibleView
+  },
+  {
+    path:'/secretary',
+    name:'secretary',
+    component: () => secretaryView
+
+  },
+  {
+    path:'/teacher',
+    name:'teacher',
+    component: () => teacherView
   }
 
 ]
