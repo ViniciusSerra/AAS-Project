@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import Body from './body.vue';
 import rodape from './footer.vue';
 import menuExtend from './menu.vue';
 
@@ -16,7 +15,6 @@ export default {
         }
     },
     components: {
-        Body,
         menuExtend,
         rodape
     },

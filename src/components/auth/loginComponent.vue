@@ -1,13 +1,14 @@
 <template>
     <div>
         <v-row>
-            <v-col class="d-flex align-center pb-16 ml-0" style="background-color: #44b8d7;">
+            <v-col class="d-flex" style="background-color: #44b8d7;">
                 <loginModal></loginModal>
+                <v-space></v-space>
             </v-col>
             <v-col v-if="isDesktop" class="desktop-only d-flex  align-center">
-                <div>
+                
                     <v-img src="https://ik.imagekit.io/nck7tb9bc/AAS/img-woman-pc.gif?updatedAt=1687022292515"></v-img>
-                </div>
+               
             </v-col>
         </v-row>
     </div>

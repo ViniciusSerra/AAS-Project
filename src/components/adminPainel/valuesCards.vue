@@ -8,7 +8,7 @@
                             <h2>PAGAMENTO DO DIA</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mt-auto" tile>
                             <v-icon size="80">mdi-currency-usd</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -21,7 +21,7 @@
                             <h2>SAÍDA DO DIA</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mt-auto" tile>
                             <v-icon size="80">mdi-currency-usd</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -34,7 +34,7 @@
                             <h2>SALDO DO DIA</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mt-auto" tile>
                             <v-icon size="80">mdi-currency-usd</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -47,7 +47,7 @@
                             <h2>SALDO DO MÊS</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mt-auto" tile>
                             <v-icon size="80">mdi-currency-usd</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -60,7 +60,7 @@
                             <h2>% INADIPLÊNCIA </h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -73,7 +73,7 @@
                             <h2>% ALUNOS INADIPLÊNTE </h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -86,7 +86,7 @@
                             <h2>VENCIMENTO DO DIA </h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -99,7 +99,7 @@
                             <h2>TOTAL DE VENCIMENTOS </h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -112,7 +112,7 @@
                             <h2>ALUNOS CADASTRADOS </h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -125,7 +125,7 @@
                             <h2>TOTAL DE PROFESSORES</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -138,7 +138,7 @@
                             <h2>TOTAL DE DICIPLINAS</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>
@@ -151,7 +151,7 @@
                             <h2>TOTAL DE TURMAS</h2>
                             <h1 class="mt-5 text-grey">R$ 250,00</h1>
                         </div>
-                        <v-btn icon variant="plain" class="ml-auto mb-3 mr-4 mt-auto" tile>
+                        <v-btn icon variant="text" class="ml-auto mb-3 mr-4 mt-auto" tile>
                             <v-icon size="80">mdi-list-box-outline</v-icon>
                         </v-btn>
                     </v-card-text>

@@ -1,5 +1,5 @@
 <template>
-  <v-row align="center" class="pb-16" justify="center">
+  <v-row align="center" class=" ma-1 h-screen" justify="center">
     <v-col cols="12" sm="7">
 
       <v-row align="center" justify="center" style="background-color: #44b8d7;">

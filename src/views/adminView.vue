@@ -1,13 +1,27 @@
 <template>
-<AdminComponent/>
-
+        <Header :admin="true" :userType="user" />
+        <v-main>
+            <AdminComponent/>
+        </v-main>
+        <div align="center">
+            <rodape />
+        </div>
 </template>
 <script>
+import Header from '@/layouts/header.vue'
 import AdminComponent from '@/components/adminPainel/adminComponent.vue';
-export default{
-    name:"adminView",
-    components:{
-        AdminComponent
+import rodape from '@/layouts/footer.vue'
+export default {
+    name: "adminView",
+    components: {
+        Header,
+        AdminComponent,
+        rodape
+    },
+    data() {
+        return {
+            user:'Administrador'
+        }
     }
 }
 </script>
