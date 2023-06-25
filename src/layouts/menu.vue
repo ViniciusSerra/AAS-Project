@@ -10,49 +10,52 @@
                         <h3>CADASTRADOS</h3>
                     </v-sheet>
                 </v-col>
+                <div>
+                    <v-expansion-panels variant="inset" class="my-2">
+                        <v-expansion-panel class="bg-light-blue-darken-4">
+                            <v-expansion-panel-header @click="personPanel">
+                                <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center"></v-icon>
+                                <v-text class="ml-3">Pessoas</v-text>
+                                <v-icon right class="ml-5" :class="{ 'rotate-icon': personExpanded }">
+                                    mdi mdi-chevron-right
+                                </v-icon>
+                            </v-expansion-panel-header>
+
+                            <v-expansion-panel-content v-show="personExpanded">
+                                <v-list>
+                                    <v-list-item v-for="(item, index) in users" :key="index">
+                                        <v-btn size="large" @click="openDialog(item.title)" variant="text">
+                                            <v-list-item-title>{{ item.title }}</v-list-item-title>
+                                        </v-btn>
+                                    </v-list-item>
+                                </v-list>
+                            </v-expansion-panel-content>
+                        </v-expansion-panel>
+                    </v-expansion-panels>
+
+                    <personRegistration v-if="selectedItem !== null" :dialog="openDialog" :selectedItem="selectedItem" />
+                </div><br />
+
                 <div class="justify-space-between">
-                    <v-menu :location="location" class=" align-center justify-center">
-                        <template v-slot:activator="{ props }">
-                            <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center">
-                            </v-icon>
-                            <v-text class="ml-3">Pessoas</v-text>
-                            <v-btn icon="mdi mdi-chevron-right" class="ml-3" variant="plain" size="large" color="white"
-                                v-bind="props">
+                    <v-expansion-panels variant="inset" class="my-2">
+                        <v-expansion-panel class="bg-light-blue-darken-4">
+                            <v-expansion-panel-header @click="disciplinePanel">
+                                <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center"></v-icon>
+                                <v-text class="ml-3">Turmas/Diciplinas</v-text>
+                                <v-icon right :class="{ 'rotate-icon': disciplineExpanded }">mdi mdi-chevron-right</v-icon>
+                            </v-expansion-panel-header>
 
-                            </v-btn>
-                        </template>
-
-                        <v-list>
-                            <v-list-item v-for="(item, index) in users" :key="index">
-                                <v-btn size="large" variant="text">
-                                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                                </v-btn>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-                </div>
-                <div class="justify-space-between">
-                    <v-menu :location="location" class=" align-center justify-center">
-                        <template v-slot:activator="{ props }">
-                            <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center">
-                            </v-icon>
-                            <v-text class="ml-3">Turmas/Diciplinas</v-text>
-                            <v-btn icon="mdi mdi-chevron-right" class="ml-2" variant="plain" size="large" color="white"
-                                v-bind="props">
-
-                            </v-btn>
-                        </template>
-
-                        <v-list>
-                            <v-list-item v-for="(item, index) in  turmas" :key="index">
-                                <v-btn size="large" variant="text">
-                                    <v-list-item-title>
-                                        {{ item.title }}
-                                    </v-list-item-title>
-                                </v-btn>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
+                            <v-expansion-panel-content v-show="disciplineExpanded">
+                                <v-list>
+                                    <v-list-item v-for="(item, index) in users" :key="index">
+                                        <v-btn size="large" variant="text">
+                                            <v-btn size="large" variant="text" @click="openDialog">{{ item.title }}</v-btn>
+                                        </v-btn>
+                                    </v-list-item>
+                                </v-list>
+                            </v-expansion-panel-content>
+                        </v-expansion-panel>
+                    </v-expansion-panels>
                 </div>
             </v-template>
             <v-template v-if="responsible" class='w-100'>
@@ -122,7 +125,7 @@
             <v-template v-if="teacher" class="justify-center w-100">
                 <v-col cols="12" class="w-100">
                     <v-row>
-                        <v-col  v-for="turma in valores.turma" :key="turma.nome" cols="12">
+                        <v-col v-for="turma in valores.turma" :key="turma.nome" cols="12">
                             <v-btn @click="acaoDoBotao(turma)" variant="text" class="text-h7 S font-weight-black ">
                                 <v-icon class="mb-1 mr-2 ">
                                     mdi-account-group
@@ -132,7 +135,7 @@
                                 </v-text> {{ turma.nome }}
                             </v-btn>
                         </v-col>
-                            <v-divider class="border-opacity-100 mt-2" color="white"></v-divider>
+                        <v-divider class="border-opacity-100 mt-2" color="white"></v-divider>
 
                     </v-row>
                 </v-col>
@@ -172,14 +175,18 @@
 </template>
 
 <script>
+import personRegistration from '@/components/adminPainel/personRegistration.vue';
 export default {
     name: "menuExtend",
+    components:{
+        personRegistration 
+    },
     props: {
         responsible: Boolean,
         admin: Boolean,
         userType: String,
         secretary: Boolean,
-        teacher:Boolean
+        teacher: Boolean
     },
     data() {
         return {
@@ -207,8 +214,11 @@ export default {
                     { nome: '3003' },
                     { nome: '3004' }
                 ]
-            }
-
+            },
+            personExpanded: false,
+            disciplineExpanded: false,
+            selectedItem: null,
+            dialog: false
         }
     },
     methods: {
@@ -217,7 +227,23 @@ export default {
         },
         menuIcon: function () {
             this.iconMenu = !this.iconMenu
+        },
+        personPanel: function () {
+            this.personExpanded = !this.personExpanded;
+        },
+        disciplinePanel: function () {
+            this.disciplineExpanded = !this.disciplineExpanded;
+        },
+        openDialog(title) {
+            this.selectedItem = title;
+            this.dialog = true;
+
         }
     }
 }
 </script>
+<style>
+.rotate-icon {
+    transform: rotate(90deg);
+}
+</style>
