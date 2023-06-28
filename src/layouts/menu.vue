@@ -33,7 +33,7 @@
                         </v-expansion-panel>
                     </v-expansion-panels>
 
-                    <personRegistration v-if="selectedItem !== null" :dialog="openDialog" :selectedItem="selectedItem" />
+                    <personRegistration v-if="selectedItem !== null" :dialog="openDialog" @fecharModal="fecharModal" :selectedItem="selectedItem" />
                 </div><br />
 
                 <div class="justify-space-between">
@@ -236,8 +236,11 @@ export default {
         },
         openDialog(title) {
             this.selectedItem = title;
-            this.dialog = true;
+            this.dialog = !this.dialog;
 
+        },
+        fecharModal(){
+            this.dialog = !this.dialog
         }
     }
 }

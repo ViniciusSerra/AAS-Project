@@ -6,6 +6,7 @@ import adminView from '@/views/adminView.vue'
 import resposibleView from '@/views/responsaibleView.vue' 
 import secretaryView from '@/views/secretaryView.vue'
 import teacherView from '@/views/teacherView.vue'
+import studentyView from '@/views/studentyView.vue'
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path:'/teacher',
     name:'teacher',
     component: () => teacherView
+  },
+  {
+    path:'/studenty',
+    name:'studenty',
+    component: () => studentyView
   }
 
 ]
