@@ -4,60 +4,9 @@
             <!-- <v-app-bar-nav-icon size="x-large" ></v-app-bar-nav-icon> -->
             <h1 class="ma-3">{{ userType }}</h1>
             <v-divider :thickness="2" class="border-opacity-100" color="white"></v-divider>
-            <v-template v-if="admin">
-                <v-col>
-                    <v-sheet class="bg-light-blue-darken-4 mt-5">
-                        <h3>CADASTRADOS</h3>
-                    </v-sheet>
-                </v-col>
-                <div>
-                    <v-expansion-panels variant="inset" class="my-2">
-                        <v-expansion-panel class="bg-light-blue-darken-4">
-                            <v-expansion-panel-header @click="personPanel">
-                                <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center"></v-icon>
-                                <v-text class="ml-3">Pessoas</v-text>
-                                <v-icon right class="ml-5" :class="{ 'rotate-icon': personExpanded }">
-                                    mdi mdi-chevron-right
-                                </v-icon>
-                            </v-expansion-panel-header>
 
-                            <v-expansion-panel-content v-show="personExpanded">
-                                <v-list>
-                                    <v-list-item v-for="(item, index) in users" :key="index">
-                                        <v-btn size="large" @click="openDialog(item.title)" variant="text">
-                                            <v-list-item-title>{{ item.title }}</v-list-item-title>
-                                        </v-btn>
-                                    </v-list-item>
-                                </v-list>
-                            </v-expansion-panel-content>
-                        </v-expansion-panel>
-                    </v-expansion-panels>
-
-                    <personRegistration v-if="selectedItem !== null" :dialog="openDialog" @fecharModal="fecharModal" :selectedItem="selectedItem" />
-                </div><br />
-
-                <div class="justify-space-between">
-                    <v-expansion-panels variant="inset" class="my-2">
-                        <v-expansion-panel class="bg-light-blue-darken-4">
-                            <v-expansion-panel-header @click="disciplinePanel">
-                                <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center"></v-icon>
-                                <v-text class="ml-3">Turmas/Diciplinas</v-text>
-                                <v-icon right :class="{ 'rotate-icon': disciplineExpanded }">mdi mdi-chevron-right</v-icon>
-                            </v-expansion-panel-header>
-
-                            <v-expansion-panel-content v-show="disciplineExpanded">
-                                <v-list>
-                                    <v-list-item v-for="(item, index) in users" :key="index">
-                                        <v-btn size="large" variant="text">
-                                            <v-btn size="large" variant="text" @click="openDialog">{{ item.title }}</v-btn>
-                                        </v-btn>
-                                    </v-list-item>
-                                </v-list>
-                            </v-expansion-panel-content>
-                        </v-expansion-panel>
-                    </v-expansion-panels>
-                </div>
-            </v-template>
+            <adminMenu v-if="admin"/>
+            <secretaryMenu v-if="secretary"/>
             <v-template v-if="responsible" class='w-100'>
                 <div class="ma-5">
                     <v-text class="font-weight-black text-h7  text-white"> Nome do aluno: </v-text> <br />
@@ -75,53 +24,7 @@
                 </div>
                 <v-divider :thickness="2" class="border-opacity-100" color="white"></v-divider>
             </v-template>
-            <v-template v-if="secretary" class="align-start  w-100">
-                <v-col>
-                    <v-sheet class="bg-light-blue-darken-4 ">
-                        <h3>CADASTRADOS</h3>
-                    </v-sheet>
-                </v-col>
-                <div class="align-start">
-                    <v-menu :location="location" class=" align-center justify-center">
-                        <template v-slot:activator="{ props }">
-                            <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center">
-                            </v-icon>
-                            <v-text class="ml-3">Alunos</v-text>
-                            <v-btn icon="mdi mdi-chevron-right" class="ml-3" variant="plain" color="white" v-bind="props">
 
-                            </v-btn>
-                        </template>
-
-
-                    </v-menu>
-                </div>
-                <div class="justify-space-between">
-                    <v-menu :location="location" class=" align-start justify-center">
-                        <template v-slot:activator="{ props }">
-                            <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center">
-                            </v-icon>
-                            <v-text class="ml-3">Responsável</v-text>
-                            <v-btn icon="mdi mdi-chevron-right" variant="plain" color="white" v-bind="props">
-
-                            </v-btn>
-                        </template>
-
-                    </v-menu>
-                </div>
-                <div class="justify-space-between">
-                    <v-menu :location="location" class=" align-start justify-center">
-                        <template v-slot:activator="{ props }">
-                            <v-icon class="mdi mdi-account-group ml-5 mb-2 align-center">
-                            </v-icon>
-                            <v-text class="ml-3">Turmas</v-text>
-                            <v-btn icon="mdi mdi-chevron-right" variant="plain" color="white" v-bind="props">
-
-                            </v-btn>
-                        </template>
-
-                    </v-menu>
-                </div>
-            </v-template>
             <v-template v-if="teacher" class="justify-center w-100">
                 <v-col cols="12" class="w-100">
                     <v-row>
@@ -175,11 +78,13 @@
 </template>
 
 <script>
-import personRegistration from '@/components/adminPainel/personRegistration.vue';
+import adminMenu from '@/components/adminPainel/adminMenu.vue';
+import secretaryMenu from '@/components/secretaryPainel/secretaryMenu.vue'
 export default {
     name: "menuExtend",
     components:{
-        personRegistration 
+        adminMenu,
+        secretaryMenu
     },
     props: {
         responsible: Boolean,

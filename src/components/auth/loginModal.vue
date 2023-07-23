@@ -1,5 +1,7 @@
 <template>
-  <v-row align="center" class=" ma-1 h-screen" justify="center">
+
+  <v-row align="center"  class=" ma-1 h-screen" justify="center">
+
     <v-col cols="12" sm="7">
 
       <v-row align="center" justify="center" style="background-color: #44b8d7;">
@@ -12,13 +14,14 @@
               <v-col cols="12" sm="8">
                 <v-row align="center">
                   <v-icon icon="mdi-email" class="mr-2" color="white"> </v-icon>
-                  <v-text-field clearable class="text-white font-weight-bold" label="Login ID" variant="underlined">
+                  <v-text-field clearable class="text-white font-weight-bold" v-model="this.user.login" label="Login ID"
+                    variant="underlined">
                   </v-text-field>
                 </v-row>
                 <v-row align="center">
                   <v-icon icon="mdi-lock" color="white" class="mr-2"> </v-icon>
-                  <v-text-field clearable class="text-white font-weight-bold" label="senha" type="password"
-                    variant="underlined">
+                  <v-text-field clearable class="text-white font-weight-bold" label="senha" v-model="this.user.senha"
+                    type="password" variant="underlined">
                   </v-text-field>
                 </v-row>
                 <v-row cols="6" sm="6" justify="center">
@@ -51,23 +54,30 @@
   </v-row>
 </template>
 <script>
+// import http from '@/services/config';
 export default {
   name: 'loginModal',
   data() {
     return {
-      loading: false
+      loading: false,
+      user: {
+        'login': '',
+        'senha': ''
+        },
+        falha:false
     }
   },
-  methods: {
-    login: function () {
-      this.loading = true,
-        console.log('login')
-      setTimeout(() => {
-        this.loading = false;
-      }, 5000);
-    }
-
-  }
-
+  // methods: {
+  //   async login() {
+  //     try {
+  //       const { data } = await http.post('/auth',this.user);
+  //       console.log(data)
+  //     }
+  //     catch (error) {
+  //       this.falha = true
+  //       console.log(error?.response?.data)
+  //     }
+  //   }
+  // }
 }
 </script>

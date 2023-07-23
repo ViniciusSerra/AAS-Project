@@ -3,14 +3,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import loginView from '@/views/auth/loginView.vue'
 import homeView from '@/views/homeView.vue'
 import adminView from '@/views/adminView.vue'
-import resposibleView from '@/views/responsaibleView.vue' 
+import resposibleView from '@/views/responsaibleView.vue'
 import secretaryView from '@/views/secretaryView.vue'
 import teacherView from '@/views/teacherView.vue'
 import studentyView from '@/views/studentyView.vue'
 
 const routes = [
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: loginView,
   },

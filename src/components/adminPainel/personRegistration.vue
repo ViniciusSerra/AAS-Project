@@ -52,6 +52,7 @@
 </template>
   
 <script>
+
 export default {
     name: "personRegistration",
     props: {
@@ -66,8 +67,10 @@ export default {
     methods: {
         dialogEmit() {
             this.openDialog = false;
-            this.dialog = false
-            this.$emit(this.dialog);
+            this.dialog = false;
+            this.selectedItem = null;
+            this.$emit('fecharModal',this.dialog);
+            this.$emit('noItem', this.selectedItem);
         },
     },
 };

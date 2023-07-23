@@ -1,0 +1,44 @@
+{
+    "nome": "",
+    "sobrenome": "",
+    "nascimento": null,
+    "rg": "",
+    "cpf": "",
+    "nome_pai": "",
+    "nome_mae": "",
+    "endereco": {
+        "cep": "",
+        "logradouro": "",
+        "numero": "",
+        "completo": "",
+        "ponto_refrencia": ""
+    },
+    "naturalidade": "",
+    "alergico": {
+        "alergia": ""
+    },
+    "deficiente": {
+        "deficiencia": ""
+    },
+    "contato": {
+        "celular": "",
+        "telefone": "",
+        "email": ""
+    },
+    "sexo": {
+        "sexo": ""
+    },
+    "etinia": {
+        "etnia": ""
+    },
+    "ano_escolar": {
+        "serie_escolar": ""
+    },
+    "turno": {
+        "turno": ""
+    },
+    "tipo_sanguinio": {
+        "tipo": ""
+    },
+    "user_type": ""
+}
