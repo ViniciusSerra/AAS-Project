@@ -48,6 +48,7 @@
 <script>
 import cadastro from '@/components/secretaryPainel/cadastros.vue'
 
+
 export default{
   name:'secretaryMenu',
   components:{cadastro},

@@ -1,5 +1,5 @@
-
 import { createRouter, createWebHistory } from 'vue-router'
+import store from '@/store'
 import loginView from '@/views/auth/loginView.vue'
 import homeView from '@/views/homeView.vue'
 import adminView from '@/views/adminView.vue'
@@ -11,6 +11,11 @@ import studentyView from '@/views/studentyView.vue'
 const routes = [
   {
     path: '/',
+    name: 'loginRoot',
+    component: loginView,
+  },
+  {
+    path: '/login',
     name: 'login',
     component: loginView,
   },
@@ -44,12 +49,25 @@ const routes = [
     name:'studenty',
     component: () => studentyView
   }
-
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/login'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user-token');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  next();
+});
+
+
 
 export default router

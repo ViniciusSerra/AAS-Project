@@ -1,7 +1,6 @@
 <template>
 
   <v-row align="center"  class=" ma-1 h-screen" justify="center">
-
     <v-col cols="12" sm="7">
 
       <v-row align="center" justify="center" style="background-color: #44b8d7;">
@@ -14,13 +13,13 @@
               <v-col cols="12" sm="8">
                 <v-row align="center">
                   <v-icon icon="mdi-email" class="mr-2" color="white"> </v-icon>
-                  <v-text-field clearable class="text-white font-weight-bold" v-model="this.user.login" label="Login ID"
+                  <v-text-field clearable class="text-white font-weight-bold" v-model="this.user.username" label="Login ID"
                     variant="underlined">
                   </v-text-field>
                 </v-row>
                 <v-row align="center">
                   <v-icon icon="mdi-lock" color="white" class="mr-2"> </v-icon>
-                  <v-text-field clearable class="text-white font-weight-bold" label="senha" v-model="this.user.senha"
+                  <v-text-field clearable class="text-white font-weight-bold" label="senha" v-model="this.user.password"
                     type="password" variant="underlined">
                   </v-text-field>
                 </v-row>
@@ -47,6 +46,13 @@
                 src='https://ik.imagekit.io/nck7tb9bc/AAS/Design-sem-nome-unscreen.gif?updatedAt=1687056084530'></v-img>
             </v-row>
           </v-card-text>
+          <div>
+            <!-- ... Resto do seu código ... -->
+            <v-alert v-if="falha" type="error" class="mt-3" @click="fecharAlerta">
+              Credenciais inválidas. Por favor, verifique seu login e senha.
+              Clique aqui para fechar.
+            </v-alert>
+          </div>
         </v-col>
       </v-row>
 
@@ -54,7 +60,7 @@
   </v-row>
 </template>
 <script>
-// import http from '@/services/config';
+import api from '@/services/index';
 export default {
   name: 'loginModal',
   data() {
@@ -63,21 +69,33 @@ export default {
       user: {
         'login': '',
         'senha': ''
-        },
-        falha:false
+      },
+      falha: false
     }
   },
-  // methods: {
-  //   async login() {
-  //     try {
-  //       const { data } = await http.post('/auth',this.user);
-  //       console.log(data)
-  //     }
-  //     catch (error) {
-  //       this.falha = true
-  //       console.log(error?.response?.data)
-  //     }
-  //   }
-  // }
+  methods: {
+    async login() {
+      this.loading = true
+      try {
+        this.falha = false;
+        const response = await api.post('/login/', this.user);
+        const userInfo = response.data;
+        const token = response.data.token;
+        this.$store.commit('setUser', userInfo);
+        this.$store.commit('setToken', token);
+        this.$router.push('/admin');
+      } catch (error) {
+        this.falha = true;
+        console.log(error?.response?.data)
+      }finally{
+        this.loading = false
+      }
+    },
+    fecharAlerta() {
+      this.falha = false;
+    }
+  }
 }
 </script>
+
+
