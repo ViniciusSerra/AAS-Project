@@ -13,7 +13,7 @@
               <v-col cols="12" sm="8">
                 <v-row align="center">
                   <v-icon icon="mdi-email" class="mr-2" color="white"> </v-icon>
-                  <v-text-field clearable class="text-white font-weight-bold" v-model="this.user.username" label="Login ID"
+                  <v-text-field clearable class="text-white font-weight-bold" v-model="this.user.username" label="Login"
                     variant="underlined">
                   </v-text-field>
                 </v-row>

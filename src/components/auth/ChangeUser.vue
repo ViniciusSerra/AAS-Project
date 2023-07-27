@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" activator="parent" max-width="720px" transition="dialog-bottom-transition">
+    <v-dialog v-model="dialog" activator="parent" max-width="750px" max-height="850px" transition="dialog-bottom-transition">
       <template v-slot:activator="{ props }">
         <v-btn size="large" variant="text" v-bind="props">
           <v-icon>
@@ -9,31 +9,38 @@
 
       </template>
       <v-card>
-        <v-card-title class="text-center bg-light-blue-darken-4">
+        <v-card-title class="text-center tabAdmin">
           <span class="text-h5">Perfil do Usuário</span>
         </v-card-title>
         <v-card-text>
           <v-container>
             <v-row>
               <v-col cols="12" sm="6" md="6">
-                <v-text-field label="Nome *" required v-model="user.user.first_name"></v-text-field>
+                <v-text-field label="Nome *" variant="underlined" required v-model="user.user.first_name"></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="6">
-                <v-text-field label="Sobrenome" v-model="user.user.last_name" persistent-hint required></v-text-field>
+                <v-text-field label="Sobrenome" variant="underlined"  v-model="user.user.last_name" persistent-hint required></v-text-field>
               </v-col>
-              <v-col cols="12">
-                <v-text-field label="Email" v-model="user.user.email" required></v-text-field>
+              <v-col cols="10">
+                <v-text-field label="Email" variant="underlined" v-model="user.user.email" required></v-text-field>
               </v-col>
-              <v-col cols="12" sm="12">
-                <v-text-field v-model="user.user.password" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              <v-col cols="12" sm="10">
+                <v-text-field v-model="user.user.oldPassword" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                :rules="[rules.required]" variant="underlined"
+                  :type="show3 ? 'text' : 'password'" name="input-10-1" label="Senha antiga" hint="" counter
+                  @click:append="show3 = !show3">
+                </v-text-field>
+              </v-col>
+              <v-col cols="12" sm="10">
+                <v-text-field v-model="user.user.password"  variant="underlined" :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                   :rules="[rules.required, rules.min, rules.uppercase, rules.lowercase, rules.number, rules.specialChar]"
                   :type="show1 ? 'text' : 'password'" name="input-10-1" label="Senha" hint="" counter
                   @click:append="show1 = !show1">
                 </v-text-field>
               </v-col>
 
-              <v-col cols="12" sm="12">
-                <v-text-field v-model="confirmPassword" :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              <v-col cols="12" sm="10">
+                <v-text-field v-model="confirmPassword" variant="underlined" :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
                   :rules="[rules.required, rules.min, rules.uppercase, rules.lowercase, rules.number, rules.specialChar, passwordMatchRule]"
                   :type="show2 ? 'text' : 'password'" label="Confirme a senha" @click:append="show2 = !show2">
                 </v-text-field>
@@ -72,6 +79,8 @@ export default {
   data: () => ({
     show1: false,
     show2: false,
+    show3: false,
+    newUserData:[],
     password: '',
     confirmPassword: '',
     rules: {

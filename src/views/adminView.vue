@@ -1,10 +1,10 @@
 <template>
         <Header :admin="true" :userType="user" />
-        <v-main>
+        <v-main class="bg-blue-grey-lighten-5 ">
             <AdminComponent/>
         </v-main>
-        <div align="center">
-            <rodape />
+        <div align="center" class="bg-blue-grey-lighten-5">
+            <rodape  />
         </div>
 </template>
 <script>
@@ -20,7 +20,7 @@ export default {
     },
     data() {
         return {
-            user:'Administrador'
+            user:'Painel do Admin'
         }
     }
 }

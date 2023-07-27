@@ -3,18 +3,24 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    user: JSON.parse(localStorage.getItem('user')) || [], // Inicializa o usuário com o valor do localStorage
-    token: localStorage.getItem('user-token') || '', // Inicializa o token com o valor do localStorage
+    user: JSON.parse(localStorage.getItem('user')) || [],
+    token: localStorage.getItem('user-token') || '',
+    tabsAdmin:localStorage.getItem('tabsAdmin')
   },
   mutations: {
     setUser(state, userInfo) {
       state.user = userInfo;
-      localStorage.setItem('user', JSON.stringify(userInfo)); // Armazena o usuário no localStorage quando ele é atualizado
+      localStorage.setItem('user', JSON.stringify(userInfo));
     },
     setToken(state, token) {
       state.token = token;
-      localStorage.setItem('user-token', token); // Armazena o token no localStorage quando ele é atualizado
+      localStorage.setItem('user-token', token);
     },
+    setTabAdmin(state,tabsAdmin){
+      state.tabsAdmin = tabsAdmin
+      localStorage.setItem("tabsAdmin",tabsAdmin)
+    }
+
   },
   actions: {
 

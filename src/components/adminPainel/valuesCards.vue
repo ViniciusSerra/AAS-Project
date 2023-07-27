@@ -1,5 +1,5 @@
 <template>
-    <v-container class="mt-7">
+    <v-container class="mt-7 ">
         <v-row>
             <v-col class="mb-5" cols="10" sm="6" md="3">
                 <v-card class="border-left--green" height="120">
@@ -160,8 +160,8 @@
         </v-row>
     </v-container>
 </template>
-  
-  
+
+
 <script>
 export default {
     name: 'valuesCards'

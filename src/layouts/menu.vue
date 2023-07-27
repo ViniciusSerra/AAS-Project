@@ -45,7 +45,7 @@
       </v-template>
     </v-row>
   </v-navigation-drawer>
-  <v-toolbar flat app>
+  <v-toolbar flat app class="bg-white ">
     <v-tool-bar-title class="text-uppercase grey--text justify=center">
       <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
     </v-tool-bar-title>
