@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent color="light-blue-darken-4">
+  <v-navigation-drawer v-model="drawer" app clipped color="light-blue-darken-4">
     <v-row align="center" class="ma-auto align-center justify-center">
       <h1 class="ma-3">{{ userType }}</h1>
       <v-divider :thickness="2" class="border-opacity-100" color="white"></v-divider>
@@ -47,7 +47,8 @@
   </v-navigation-drawer>
   <v-toolbar flat app class="bg-white ">
     <v-tool-bar-title class="text-uppercase grey--text justify=center">
-      <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
     </v-tool-bar-title>
     <v-spacer></v-spacer>
     <span class="font-weight-light prepend mr-2">{{ user.user.first_name }} {{ user.user.last_name }}</span>
@@ -62,7 +63,7 @@
           <v-col class="justify-start">
             <v-sheet class="ml-3 ">
 
-              <ChangeUser  />
+              <ChangeUser />
             </v-sheet>
             <v-sheet class="mt-4">
               <v-btn variant="text" @click="logout" size="large" class="size-30"> <v-icon class="mr-1">mdi
@@ -81,6 +82,7 @@ import adminMenu from '@/components/adminPainel/adminMenu.vue';
 import secretaryMenu from '@/components/secretaryPainel/secretaryMenu.vue';
 import ChangeUser from '@/components/auth/ChangeUser.vue';
 import { mapState } from 'vuex';
+import { createApp } from 'vue';
 
 export default {
   name: "menuExtend",
@@ -101,6 +103,7 @@ export default {
   },
   data() {
     return {
+      drawer: null,
       users: [
         { title: 'Secretário' },
         { title: 'Professor' },
@@ -160,9 +163,14 @@ export default {
       } catch (error) {
         console.error('Erro ao fazer logout:', error);
       }
-    }
+    },
+  },
+  created() {
 
-  }
+    if (window.matchMedia("(min-width: 1200px)").matches) {
+      this.drawer = true;
+    }
+  },
 }
 </script>
 <style>

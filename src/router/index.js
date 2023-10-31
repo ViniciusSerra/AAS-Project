@@ -55,17 +55,17 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
-  const publicPages = ['/login'];
-  const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem('user-token');
+// router.beforeEach((to, from, next) => {
+//   const publicPages = ['/login'];
+//   const authRequired = !publicPages.includes(to.path);
+//   const loggedIn = localStorage.getItem('user-token');
 
-  if (authRequired && !loggedIn) {
-    return next('/login');
-  }
+//   if (authRequired && !loggedIn) {
+//     return next('/login');
+//   }
 
-  next();
-});
+//   next();
+// });
 
 
 

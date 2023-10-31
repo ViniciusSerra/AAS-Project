@@ -27,7 +27,6 @@
       </v-tab>
     </v-tabs>
   </v-col>
-  <v-data-table></v-data-table>
 </template>
 
 <script>
